@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 400 500"
+   width="100%"
+   height="100%"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="morphomesh-logo-line-fullname.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.6617009"
+     inkscape:cx="160.07694"
+     inkscape:cy="307.21533"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="1072"
+     inkscape:window-y="1126"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <g
+     stroke="#111111"
+     stroke-width="16"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     fill="none"
+     id="g4"
+     inkscape:label="logo">
+    <!-- Center Horizontal Line -->
+    <!-- Top Geometric Section -->
+    <path
+       d="M 320,240 V 110 L 200,170 80,80 v 160 h 74 c 5.71703,-23.64924 20.8207,-35.92956 45.67351,-35.92956 24.85281,0 40.11394,16.49287 44.32649,35.92956 z"
+       id="path1"
+       sodipodi:nodetypes="ccccccscc"
+       style="display:inline;fill:none;fill-opacity:1"
+       inkscape:label="top-m" />
+    <!-- Bottom Geometric Section -->
+    <path
+       d="M 320,260 V 420 L 200,330 80,390 V 260 h 74 c 3.00897,26.35731 20.92062,37.14212 45.77343,37.14212 24.85281,0 39.41223,-10.78481 44.22657,-37.14212 z"
+       id="path2"
+       sodipodi:nodetypes="ccccccscc"
+       style="display:inline;fill:none;fill-opacity:1"
+       inkscape:label="bottom-m" />
+    <!-- Center Circle (Filled Bottom Half) -->
+    <path
+       d="m 154,260 c 3.00897,26.35731 21.14719,34.99998 46,34.99998 24.85281,0 39.18566,-8.64267 44,-34.99998"
+       fill="#111111"
+       id="path3"
+       sodipodi:nodetypes="csc"
+       style="display:none;fill:none;fill-opacity:1"
+       inkscape:label="bottom-circle" />
+    <!-- Center Circle (Outlined Top Half) -->
+    <path
+       d="m 155,240 c 5.71703,-23.64924 20.14719,-34.99998 45,-34.99998 24.85281,0 40.78745,15.56329 45,34.99998"
+       id="path4"
+       style="display:none;fill:none;fill-opacity:1"
+       inkscape:label="top-circle"
+       sodipodi:nodetypes="csc" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:72px;line-height:700.869px;font-family:'Ink Free';-inkscape-font-specification:'Ink Free, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#121212;fill-opacity:1;stroke:none;stroke-width:3.78;stroke-dasharray:none"
+     x="433.29095"
+     y="229.88493"
+     id="text4"
+     inkscape:label="morpho"><tspan
+       sodipodi:role="line"
+       id="tspan4"
+       x="433.29095"
+       y="229.88493"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;line-height:700.869px;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';fill:#121212;stroke:none;stroke-opacity:1;stroke-width:3.78;stroke-dasharray:none;fill-opacity:1">orpho</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:72px;line-height:700.869px;font-family:'Ink Free';-inkscape-font-specification:'Ink Free, Normal';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#121212;fill-opacity:1;stroke:none;stroke-width:3.78;stroke-dasharray:none"
+     x="-15.041023"
+     y="-267.50391"
+     id="text4-3"
+     transform="scale(-1)"
+     inkscape:label="mesh"><tspan
+       sodipodi:role="line"
+       id="tspan4-1"
+       x="-15.041023"
+       y="-267.50391"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;line-height:700.869px;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';fill:#121212;fill-opacity:1;stroke:none;stroke-width:3.78;stroke-dasharray:none;stroke-opacity:1">esh</tspan></text>
+</svg>

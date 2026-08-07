@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morphomesh — Creative 3D Printing Tools</title>
+  <meta name="description" content="Morphomesh is a set of creative 3D printing tools — multi-color painting, photo-to-puzzle, and kit-card layout — built for makers who slice." />
+
+  <!-- Open Graph (og-image asset pending — add assets/og-image.png, 1200x630, once real branding exists) -->
+  <meta property="og:title" content="Morphomesh — Creative 3D Printing Tools" />
+  <meta property="og:description" content="Creative 3D printing tools: multi-color painting, photo-to-puzzle, and kit-card layout." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon-mark.svg" />
+  <!-- TODO: add assets/apple-touch-icon.png (180x180) and assets/favicon.ico once real branding/logo exists -->
+  <link rel="canonical" href="https://morphomesh.com/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 400 500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M 320,240 V 110 L 200,170 80,80 v 160 h 74 c 5.71703,-23.64924 20.8207,-35.92956 45.67351,-35.92956 24.85281,0 40.11394,16.49287 44.32649,35.92956 z" />
+            <path d="M 320,260 V 420 L 200,330 80,390 V 260 h 74 c 3.00897,26.35731 20.92062,37.14212 45.77343,37.14212 24.85281,0 39.41223,-10.78481 44.22657,-37.14212 z" />
+          </g>
+        </svg>
+        <span class="brand-wordmark">Morphomesh</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <span class="pill">Coming Soon</span>
+        <details class="nav-disclosure">
+          <summary aria-label="Open navigation">&#9776;</summary>
+          <div class="nav-links">
+            <a href="#tools">Tools</a>
+            <a href="#early-access">Updates</a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="container hero-container">
+        <div class="hero-brand">
+          <div class="hero-logo" aria-hidden="true">
+            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="var(--mm-charcoal)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 320,240 V 110 L 200,170 80,80 v 160 h 74 c 5.71703,-23.64924 20.8207,-35.92956 45.67351,-35.92956 24.85281,0 40.11394,16.49287 44.32649,35.92956 z" fill="var(--mm-print-teal)" />
+                <path d="M 320,260 V 420 L 200,330 80,390 V 260 h 74 c 3.00897,26.35731 20.92062,37.14212 45.77343,37.14212 24.85281,0 39.41223,-10.78481 44.22657,-37.14212 z" fill="var(--mm-print-amber)" />
+              </g>
+            </svg>
+          </div>
+          <h1 class="hero-wordmark">
+            <span aria-hidden="true"><span>M</span><span>o</span><span>r</span><span>p</span><span>h</span><span>o</span><span>m</span><span>e</span><span>s</span><span>h</span></span>
+            <span class="visually-hidden">Morphomesh</span>
+          </h1>
+        </div>
+        <p class="hero-tagline">Creative 3D printing tools, built for makers who slice.</p>
+        <p class="hero-desc">Morphomesh turns photos and meshes into print-ready, multi-color files — no manual cleanup. Export straight into your slicer.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#early-access">Join the Mailing List</a>
+          <a class="btn btn-secondary" href="#tools">See the Tools</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The Workflow</span>
+          <h2>From idea to printed part.</h2>
+        </div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <span class="workflow-num workflow-num--blue">1</span>
+            <h3>Design / Download</h3>
+            <p>Start with a model you've made, or one you've downloaded.</p>
+          </div>
+          <span class="workflow-arrow" aria-hidden="true">&rarr;</span>
+          <div class="workflow-step">
+            <span class="workflow-num workflow-num--amber">2</span>
+            <h3>Morph</h3>
+            <p>Run it through a Morphomesh tool — paint it, puzzle it, or pack it for print.</p>
+          </div>
+          <span class="workflow-arrow" aria-hidden="true">&rarr;</span>
+          <div class="workflow-step">
+            <span class="workflow-num workflow-num--coral">3</span>
+            <h3>Slice</h3>
+            <p>Open the export in your slicer.</p>
+          </div>
+          <span class="workflow-arrow" aria-hidden="true">&rarr;</span>
+          <div class="workflow-step">
+            <span class="workflow-num workflow-num--teal">4</span>
+            <h3>Print</h3>
+            <p>Send it to your printer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Available Now</span>
+          <h2>Four tools, ready today.</h2>
+          <p>These tools are already functional in the app, with more on the way.</p>
+        </div>
+
+        <div class="card tool-featured">
+          <div class="tool-card-art" aria-hidden="true" style="aspect-ratio: 1;">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="38" fill="none" stroke="var(--border)" stroke-width="1.5" />
+              <path d="M50 12 A38 38 0 0 1 84 60 L50 50 Z" fill="var(--mm-print-amber)" />
+              <path d="M84 60 A38 38 0 0 1 40 87 L50 50 Z" fill="var(--mm-print-coral)" />
+              <path d="M40 87 A38 38 0 0 1 14 42 L50 50 Z" fill="var(--mm-print-teal)" />
+              <path d="M14 42 A38 38 0 0 1 50 12 L50 50 Z" fill="var(--mm-print-blue)" />
+            </svg>
+          </div>
+          <div class="tool-card-copy">
+            <div class="tool-card-head">
+              <h3>Model Painter</h3>
+            </div>
+            <p>Paint a model face-by-face, band-by-band, or region-by-region — solid color, height bands, normal-based fill, flood fill, brush, or project a photo straight onto the mesh. Export a multi-color file your slicer already understands, ready for multi-material printing.</p>
+          </div>
+        </div>
+
+        <div class="tool-grid">
+          <div class="card tool-card">
+            <div class="tool-card-art" aria-hidden="true">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration representing a multi-color puzzle split into regions">
+                <defs>
+                  <clipPath id="puzzle-clip">
+                    <path d="M20 20h25c0-6 5-8 8-8s8 2 8 8h25v25c6 0 8 5 8 8s-2 8-8 8v25H61c0-6-5-8-8-8s-8 2-8 8H20V61c-6 0-8-5-8-8s2-8 8-8V20z" />
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#puzzle-clip)">
+                  <rect x="14" y="12" width="38" height="38" fill="var(--mm-print-amber)" />
+                  <rect x="52" y="12" width="38" height="38" fill="var(--mm-print-coral)" />
+                  <rect x="14" y="50" width="38" height="38" fill="var(--mm-print-blue)" />
+                  <rect x="52" y="50" width="38" height="38" fill="var(--mm-print-teal)" />
+                </g>
+                <path d="M20 20h25c0-6 5-8 8-8s8 2 8 8h25v25c6 0 8 5 8 8s-2 8-8 8v25H61c0-6-5-8-8-8s-8 2-8 8H20V61c-6 0-8-5-8-8s2-8 8-8V20z" stroke="var(--mm-charcoal)" stroke-width="2" fill="none" />
+              </svg>
+            </div>
+            <div class="tool-card-head">
+              <h3>Color Puzzle Generator</h3>
+            </div>
+            <p>Turn any photo into a multi-color puzzle — color regions are detected automatically and split into pieces ready for multi-material printing.</p>
+          </div>
+
+          <div class="card tool-card">
+            <div class="tool-card-art tool-card-art--teal" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration representing parts laid out on a printable sheet">
+                <rect x="10" y="15" width="80" height="70" rx="4" stroke="currentColor" stroke-width="2" />
+                <rect x="22" y="27" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3" />
+                <circle cx="70" cy="36" r="10" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3" />
+                <polygon points="30,68 45,68 37,55" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3" />
+                <line x1="40" y1="36" x2="60" y2="36" stroke="currentColor" stroke-width="1" />
+                <line x1="37" y1="60" x2="37" y2="55" stroke="currentColor" stroke-width="1" />
+              </svg>
+            </div>
+            <div class="tool-card-head">
+              <h3>Kit Card Generator</h3>
+            </div>
+            <p>Selling kits or miniatures? Drop in your part files and Morphomesh lays them out on one printable sheet, connected with support sprues — like a store-bought model kit.</p>
+          </div>
+
+          <div class="card tool-card">
+            <div class="tool-card-art" aria-hidden="true">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration representing two files merging into one">
+                <circle cx="35" cy="42" r="20" fill="var(--mm-print-coral)" fill-opacity="0.75" />
+                <circle cx="62" cy="42" r="20" fill="var(--mm-print-blue)" fill-opacity="0.75" />
+                <path d="M35 78 L62 78" stroke="var(--text-muted)" stroke-width="2" fill="none" />
+                <path d="M48 70 l0 16 M42 80 l6 6 6 -6" stroke="var(--text-muted)" stroke-width="2" fill="none" />
+              </svg>
+            </div>
+            <div class="tool-card-head">
+              <h3>3MF Merger</h3>
+            </div>
+            <p>Combine multiple 3MF files into one without losing color or material assignments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="early-access" class="early-access">
+      <div class="container">
+        <span class="eyebrow">Get Involved</span>
+        <h2>Pricing isn't set yet.</h2>
+        <p>Morphomesh is still in early development. Join the mailing list to get updates as new tools ship.</p>
+
+        <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+        <form action="https://app.kit.com/forms/9769338/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9769338" data-uid="7a03fa3724" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}" min-width="400 500 600 700 800">
+          <div data-style="clean">
+            <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+            <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+              <div class="formkit-field">
+                <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="you@example.com" required type="email">
+              </div>
+              <button data-element="submit" class="formkit-submit btn btn-primary">
+                <span class="formkit-spinner"><span></span><span></span><span></span></span>
+                <span>Join the Mailing List</span>
+              </button>
+            </div>
+            <div class="formkit-powered-by-convertkit-container">
+              <a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener">Built with Kit</a>
+            </div>
+          </div>
+        </form>
+        <p class="privacy-note">We'll only use this to email you updates. No spam.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year">2026</span> Michael Longley. All rights reserved. Morphomesh is proprietary software currently in early development.</span>
+      <div class="footer-links">
+        <div class="social-links" aria-label="Morphomesh on social media">
+          <a href="https://www.printables.com/@Morphomesh_5211551" target="_blank" rel="noopener" aria-label="Morphomesh on Printables">
+            <svg viewBox="0 0 24.344 35" fill="currentColor" aria-hidden="true">
+              <path d="m0 35 12.172-7L0 21ZM12.172 0 0 7l12.172 7v14l12.172-7V7Z" />
+            </svg>
+          </a>
+          <a href="https://x.com/Morphomesh" target="_blank" rel="noopener" aria-label="Morphomesh on X">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4 L20 20" />
+              <path d="M20 4 L4 20" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/morphomesh/" target="_blank" rel="noopener" aria-label="Morphomesh on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="https://makerworld.com/en/@Morphomesh" target="_blank" rel="noopener" aria-label="Morphomesh on MakerWorld">
+            <svg viewBox="0 0 22 22" fill="currentColor" aria-hidden="true">
+              <path d="M16.3805 0.123209L21.4423 2.10813L22 2.32835V19.6716L21.4423 19.8919L16.3805 21.8768L16.0613 22L15.7431 21.8768L10.9995 20.0248L6.25693 21.8768L5.93771 22L5.61946 21.8768L0.557664 19.8919L0 19.6716V2.32835L0.557664 2.10813L5.61946 0.123209L5.93771 0L6.25693 0.123209L10.9995 1.97619L15.7431 0.123209L16.0613 0L16.3805 0.123209ZM0.858394 19.0634L5.92019 21.0473V13.8935L0.858394 11.9173V19.0634ZM10.9908 19.0634L16.0526 21.0473V13.8935L10.9908 11.9173V19.0634ZM1.1854 10.9035L0.946959 11.0005L1.1854 11.0975L5.92895 12.9495L10.6725 11.0975L10.9109 11.0005L10.6725 10.9035L5.92895 9.05049L1.1854 10.9035ZM11.31 10.9035L11.0706 11.0005L11.31 11.0975L16.0526 12.9495L20.7961 11.0975L21.0355 11.0005L20.7961 10.9035L16.0526 9.05049L11.31 10.9035ZM5.92019 8.10654L10.982 10.0827V2.92887L5.92019 0.943952V8.10654ZM16.0526 8.10654L21.1144 10.0827V2.92887L16.0526 0.943952V8.10654Z" />
+            </svg>
+          </a>
+          <a href="https://youtube.com/@morphomesh" target="_blank" rel="noopener" aria-label="Morphomesh on YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+            </svg>
+          </a>
+        </div>
+        <a href="mailto:morphomesh3d@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

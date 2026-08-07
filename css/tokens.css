@@ -1,0 +1,67 @@
+/*
+ * Morphomesh — Design Tokens (marketing site)
+ * Palette ported from the app's own theme so the site matches the real product.
+ */
+
+:root {
+  /* Shared neutrals */
+  --mm-charcoal:    #1C1A17;
+  --mm-surface:     #26231F;
+  --mm-raised:      #312D29;
+  --mm-border:      #3D3830;
+  --mm-cream:       #F0EBE3;
+  --mm-muted:       #A8A09A;
+  --mm-dim:         #635C56;
+
+  /* Forge Amber accent — the brand color, reserved for interactive elements
+     (buttons, links, focus states) so it stays consistent with the app */
+  --mm-amber:       #C97B3A;
+  --mm-amber-deep:  #A8612A;
+  --mm-amber-wash:  #3B2A1A;
+  --mm-amber-light: #E5A96A;
+
+  /* Print palette — decorative only (illustrations, icons, badges). Never
+     used on buttons/links/focus states; those stay Forge Amber, so this
+     palette is free to diverge from the app's real theme.
+     --mm-print-amber now carries the logo's muted orange (was #C97B3A,
+     matching Forge Amber) so the site doesn't carry two competing oranges.
+     --mm-print-teal was retired in favor of a muted green (used by the
+     logo mark), matched to the rest of the palette's saturation/lightness. */
+  --mm-print-amber:  #E36B20;
+  --mm-print-coral:  #E0607E;
+  --mm-print-teal:   #3FA95A;
+  --mm-print-blue:   #5B8DEF;
+  --mm-print-violet: #9B7FD4;
+
+  /* Semantic aliases */
+  --bg:             var(--mm-charcoal);
+  --surface:        var(--mm-surface);
+  --surface-raised: var(--mm-raised);
+  --border:         var(--mm-border);
+  --text:           var(--mm-cream);
+  --text-muted:     var(--mm-muted);
+  --text-dim:       var(--mm-dim);
+  --accent:         var(--mm-amber);
+  --accent-hover:   var(--mm-amber-deep);
+  --accent-wash:    var(--mm-amber-wash);
+  --accent-text:    var(--mm-amber-light);
+
+  /* Type */
+  --font-heading: "Inter", "DM Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Outfit", system-ui, sans-serif;
+  --font-wordmark: "Patrick Hand", "Segoe Print", "Bradley Hand", cursive;
+
+  --radius-box: 0.75rem;
+  --radius-btn: 0.5rem;
+  --radius-badge: 0.375rem;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  color-scheme: dark;
+}
