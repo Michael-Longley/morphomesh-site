@@ -122,80 +122,152 @@
 
         <div class="card tool-featured">
           <div class="tool-card-art" aria-hidden="true" style="aspect-ratio: 1;">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="38" fill="none" stroke="var(--border)" stroke-width="1.5" />
-              <path d="M50 12 A38 38 0 0 1 84 60 L50 50 Z" fill="var(--mm-print-amber)" />
-              <path d="M84 60 A38 38 0 0 1 40 87 L50 50 Z" fill="var(--mm-print-coral)" />
-              <path d="M40 87 A38 38 0 0 1 14 42 L50 50 Z" fill="var(--mm-print-teal)" />
-              <path d="M14 42 A38 38 0 0 1 50 12 L50 50 Z" fill="var(--mm-print-blue)" />
-            </svg>
+            <video class="tool-card-media" data-role="video"
+                   poster="assets/tools/model-painter/card.jpg"
+                   muted loop playsinline preload="metadata">
+              <source src="assets/tools/model-painter/final-clip.mp4" type="video/mp4">
+            </video>
+            <img class="tool-card-media tool-card-media-fallback"
+                 src="assets/tools/model-painter/card.jpg" alt="">
           </div>
           <div class="tool-card-copy">
             <div class="tool-card-head">
               <h3>Model Painter</h3>
             </div>
             <p>Paint a model face-by-face, band-by-band, or region-by-region — solid color, height bands, normal-based fill, flood fill, brush, or project a photo straight onto the mesh. Export a multi-color file your slicer already understands, ready for multi-material printing.</p>
+            <button type="button" class="btn btn-secondary tool-card-trigger" data-tool="model-painter">
+              View details<span class="visually-hidden"> for Model Painter</span>
+            </button>
           </div>
         </div>
 
         <div class="tool-grid">
           <div class="card tool-card">
             <div class="tool-card-art" aria-hidden="true">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration representing a multi-color puzzle split into regions">
-                <defs>
-                  <clipPath id="puzzle-clip">
-                    <path d="M20 20h25c0-6 5-8 8-8s8 2 8 8h25v25c6 0 8 5 8 8s-2 8-8 8v25H61c0-6-5-8-8-8s-8 2-8 8H20V61c-6 0-8-5-8-8s2-8 8-8V20z" />
-                  </clipPath>
-                </defs>
-                <g clip-path="url(#puzzle-clip)">
-                  <rect x="14" y="12" width="38" height="38" fill="var(--mm-print-amber)" />
-                  <rect x="52" y="12" width="38" height="38" fill="var(--mm-print-coral)" />
-                  <rect x="14" y="50" width="38" height="38" fill="var(--mm-print-blue)" />
-                  <rect x="52" y="50" width="38" height="38" fill="var(--mm-print-teal)" />
-                </g>
-                <path d="M20 20h25c0-6 5-8 8-8s8 2 8 8h25v25c6 0 8 5 8 8s-2 8-8 8v25H61c0-6-5-8-8-8s-8 2-8 8H20V61c-6 0-8-5-8-8s2-8 8-8V20z" stroke="var(--mm-charcoal)" stroke-width="2" fill="none" />
-              </svg>
+              <video class="tool-card-media" data-role="video"
+                     poster="assets/tools/color-puzzle-generator/card.jpg"
+                     muted loop playsinline preload="metadata">
+                <source src="assets/tools/color-puzzle-generator/final-clip.mp4" type="video/mp4">
+              </video>
+              <img class="tool-card-media tool-card-media-fallback"
+                   src="assets/tools/color-puzzle-generator/card.jpg" alt="">
             </div>
             <div class="tool-card-head">
               <h3>Color Puzzle Generator</h3>
             </div>
             <p>Turn any photo into a multi-color puzzle — color regions are detected automatically and split into pieces ready for multi-material printing.</p>
+            <button type="button" class="btn btn-secondary tool-card-trigger" data-tool="color-puzzle-generator">
+              View details<span class="visually-hidden"> for Color Puzzle Generator</span>
+            </button>
           </div>
 
           <div class="card tool-card">
-            <div class="tool-card-art tool-card-art--teal" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration representing parts laid out on a printable sheet">
-                <rect x="10" y="15" width="80" height="70" rx="4" stroke="currentColor" stroke-width="2" />
-                <rect x="22" y="27" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3" />
-                <circle cx="70" cy="36" r="10" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3" />
-                <polygon points="30,68 45,68 37,55" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3" />
-                <line x1="40" y1="36" x2="60" y2="36" stroke="currentColor" stroke-width="1" />
-                <line x1="37" y1="60" x2="37" y2="55" stroke="currentColor" stroke-width="1" />
-              </svg>
+            <div class="tool-card-art" aria-hidden="true">
+              <video class="tool-card-media" data-role="video"
+                     poster="assets/tools/kit-card-generator/card.jpg"
+                     muted loop playsinline preload="metadata">
+                <source src="assets/tools/kit-card-generator/final-clip.mp4" type="video/mp4">
+              </video>
+              <img class="tool-card-media tool-card-media-fallback"
+                   src="assets/tools/kit-card-generator/card.jpg" alt="">
             </div>
             <div class="tool-card-head">
               <h3>Kit Card Generator</h3>
             </div>
             <p>Selling kits or miniatures? Drop in your part files and Morphomesh lays them out on one printable sheet, connected with support sprues — like a store-bought model kit.</p>
+            <button type="button" class="btn btn-secondary tool-card-trigger" data-tool="kit-card-generator">
+              View details<span class="visually-hidden"> for Kit Card Generator</span>
+            </button>
           </div>
 
           <div class="card tool-card">
             <div class="tool-card-art" aria-hidden="true">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration representing two files merging into one">
-                <circle cx="35" cy="42" r="20" fill="var(--mm-print-coral)" fill-opacity="0.75" />
-                <circle cx="62" cy="42" r="20" fill="var(--mm-print-blue)" fill-opacity="0.75" />
-                <path d="M35 78 L62 78" stroke="var(--text-muted)" stroke-width="2" fill="none" />
-                <path d="M48 70 l0 16 M42 80 l6 6 6 -6" stroke="var(--text-muted)" stroke-width="2" fill="none" />
-              </svg>
+              <video class="tool-card-media" data-role="video"
+                     poster="assets/tools/3mf-merger/card.jpg"
+                     muted loop playsinline preload="metadata">
+                <source src="assets/tools/3mf-merger/final-clip.mp4" type="video/mp4">
+              </video>
+              <img class="tool-card-media tool-card-media-fallback"
+                   src="assets/tools/3mf-merger/card.jpg" alt="">
             </div>
             <div class="tool-card-head">
               <h3>3MF Merger</h3>
             </div>
             <p>Combine multiple 3MF files into one without losing color or material assignments.</p>
+            <button type="button" class="btn btn-secondary tool-card-trigger" data-tool="3mf-merger">
+              View details<span class="visually-hidden"> for 3MF Merger</span>
+            </button>
           </div>
         </div>
       </div>
     </section>
+
+    <dialog id="tool-modal" class="tool-modal">
+      <form method="dialog" class="tool-modal-inner">
+        <button type="submit" class="tool-modal-close" aria-label="Close">&times;</button>
+        <div class="tool-modal-body"><!-- template content cloned in here by JS --></div>
+      </form>
+    </dialog>
+
+    <template id="tpl-model-painter">
+      <h2 id="modal-title-model-painter">Model Painter</h2>
+      <p class="modal-description">[Add expanded description for Model Painter]</p>
+      <div class="modal-gallery">
+        <img src="assets/tools/model-painter/gallery-1.jpg" alt="[Add alt text for Model Painter gallery image 1]">
+        <img src="assets/tools/model-painter/gallery-2.jpg" alt="[Add alt text for Model Painter gallery image 2]">
+        <img src="assets/tools/model-painter/gallery-3.jpg" alt="[Add alt text for Model Painter gallery image 3]">
+      </div>
+      <div class="modal-video">
+        <video controls preload="none" poster="assets/tools/model-painter/card.jpg">
+          <source src="assets/tools/model-painter/final-clip.mp4" type="video/mp4">
+        </video>
+      </div>
+    </template>
+
+    <template id="tpl-color-puzzle-generator">
+      <h2 id="modal-title-color-puzzle-generator">Color Puzzle Generator</h2>
+      <p class="modal-description">[Add expanded description for Color Puzzle Generator]</p>
+      <div class="modal-gallery">
+        <img src="assets/tools/color-puzzle-generator/gallery-1.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 1]">
+        <img src="assets/tools/color-puzzle-generator/gallery-2.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 2]">
+        <img src="assets/tools/color-puzzle-generator/gallery-3.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 3]">
+      </div>
+      <div class="modal-video">
+        <video controls preload="none" poster="assets/tools/color-puzzle-generator/card.jpg">
+          <source src="assets/tools/color-puzzle-generator/final-clip.mp4" type="video/mp4">
+        </video>
+      </div>
+    </template>
+
+    <template id="tpl-kit-card-generator">
+      <h2 id="modal-title-kit-card-generator">Kit Card Generator</h2>
+      <p class="modal-description">[Add expanded description for Kit Card Generator]</p>
+      <div class="modal-gallery">
+        <img src="assets/tools/kit-card-generator/gallery-1.jpg" alt="[Add alt text for Kit Card Generator gallery image 1]">
+        <img src="assets/tools/kit-card-generator/gallery-2.jpg" alt="[Add alt text for Kit Card Generator gallery image 2]">
+        <img src="assets/tools/kit-card-generator/gallery-3.jpg" alt="[Add alt text for Kit Card Generator gallery image 3]">
+      </div>
+      <div class="modal-video">
+        <video controls preload="none" poster="assets/tools/kit-card-generator/card.jpg">
+          <source src="assets/tools/kit-card-generator/final-clip.mp4" type="video/mp4">
+        </video>
+      </div>
+    </template>
+
+    <template id="tpl-3mf-merger">
+      <h2 id="modal-title-3mf-merger">3MF Merger</h2>
+      <p class="modal-description">[Add expanded description for 3MF Merger]</p>
+      <div class="modal-gallery">
+        <img src="assets/tools/3mf-merger/gallery-1.jpg" alt="[Add alt text for 3MF Merger gallery image 1]">
+        <img src="assets/tools/3mf-merger/gallery-2.jpg" alt="[Add alt text for 3MF Merger gallery image 2]">
+        <img src="assets/tools/3mf-merger/gallery-3.jpg" alt="[Add alt text for 3MF Merger gallery image 3]">
+      </div>
+      <div class="modal-video">
+        <video controls preload="none" poster="assets/tools/3mf-merger/card.jpg">
+          <source src="assets/tools/3mf-merger/final-clip.mp4" type="video/mp4">
+        </video>
+      </div>
+    </template>
 
     <section id="early-access" class="early-access">
       <div class="container">

@@ -225,6 +225,10 @@ section {
   .tool-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 @media (max-width: 640px) {
   .hero {
     padding-top: var(--space-3);
@@ -232,6 +236,7 @@ section {
   .hero-logo { width: 4rem; }
   .tool-grid { grid-template-columns: 1fr; }
   .tool-featured { grid-template-columns: 1fr; }
+  .modal-gallery { grid-template-columns: repeat(2, 1fr); }
 
   .workflow-steps {
     flex-direction: column;
