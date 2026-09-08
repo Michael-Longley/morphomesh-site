@@ -37,7 +37,6 @@ const heroFloaterPool = [
   "assets/tools/model-painter/card.jpg",
   "assets/tools/model-painter/gallery-1.jpg",
   "assets/tools/model-painter/Flower-Panda_PLA_21h18m_20260825160813-poster.jpg",
-  "assets/tools/model-painter/PXL_20260824_165650053-poster.jpg",
   "assets/tools/model-painter/PXL_20260824_172337851-poster.jpg",
   "assets/tools/model-painter/PXL_20260827_163330833-poster.jpg",
   "assets/tools/color-puzzle-generator/card.jpg",
@@ -54,6 +53,7 @@ const heroFloaterSlots = [
   { x: "9%", y: "56%", rot: "5deg", delay: "2.6s" },
   { x: "91%", y: "54%", rot: "-6deg", delay: "0.7s" },
   { x: "18%", y: "84%", rot: "-4deg", delay: "1.9s" },
+  { x: "82%", y: "82%", rot: "6deg", delay: "1.1s" },
 ];
 
 const heroFloaters = document.querySelector(".hero-floaters");
