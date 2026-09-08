@@ -8,23 +8,13 @@
 }
 
 .hero-wordmark {
-  font-family: var(--font-wordmark);
-  font-size: clamp(3rem, 11vw, 7rem);
-  font-weight: 400;
-  letter-spacing: normal;
   margin: 0;
   line-height: 1;
 }
 
-.hero-wordmark span span:nth-child(5n+1) { color: var(--mm-print-amber); }
-.hero-wordmark span span:nth-child(5n+2) { color: var(--mm-print-coral); }
-.hero-wordmark span span:nth-child(5n+3) { color: var(--mm-print-teal); }
-.hero-wordmark span span:nth-child(5n+4) { color: var(--mm-print-blue); }
-.hero-wordmark span span:nth-child(5n)   { color: var(--mm-print-violet); }
-
-.hero-logo {
-  width: clamp(3.75rem, 11vw, 6.5rem);
-  flex: 0 0 auto;
+.hero-wordmark img {
+  width: clamp(280px, 55vw, 640px);
+  height: auto;
 }
 
 .hero-tagline {
@@ -319,6 +309,46 @@
   text-decoration: none;
 }
 
+/* ─── Credits page ───────────────────────────────────────────────────── */
+
+.credits-group {
+  margin-top: var(--space-4);
+}
+
+.credits-group h2 {
+  margin-bottom: var(--space-2);
+}
+
+.credits-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.credits-list a {
+  color: var(--accent-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.credits-list a:hover {
+  text-decoration: underline;
+}
+
+.credits-attribution dt {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.credits-attribution dd {
+  margin: 0.25rem 0 var(--space-2);
+  color: var(--text-muted);
+}
+
 /* ─── Tool detail modal ──────────────────────────────────────────────── */
 
 .tool-modal {
@@ -369,30 +399,122 @@
   color: var(--text-muted);
 }
 
-.modal-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-1);
+/* ─── Media carousel (modal) ─────────────────────────────────────────── */
+
+.carousel {
+  position: relative;
 }
 
-.modal-gallery img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   border: 1px solid var(--border);
   border-radius: var(--radius-btn);
-}
-
-.modal-video {
-  aspect-ratio: 16 / 9;
   background: var(--surface-raised);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-btn);
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
 
-.modal-video video {
+.carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.carousel-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--mm-charcoal);
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.carousel-nav:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.carousel-nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.carousel-prev {
+  left: var(--space-1);
+}
+
+.carousel-next {
+  right: var(--space-1);
+}
+
+.carousel-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.carousel-thumb {
+  flex: 0 0 auto;
+  width: 4.5rem;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-btn);
+  background: var(--surface-raised);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-thumb-video-icon {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.carousel-thumb:hover {
+  border-color: var(--accent);
+}
+
+.carousel-thumb.is-active {
+  border-color: var(--accent);
 }

@@ -9,6 +9,25 @@ section {
   padding: var(--space-5) 0;
 }
 
+/* ─── Promo banner ───────────────────────────────────────────────────── */
+
+.promo-banner {
+  display: block;
+  text-align: center;
+  background: var(--mm-blue-wash);
+  color: var(--mm-blue-light);
+  border-bottom: 1px solid var(--mm-print-blue);
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.promo-banner:hover {
+  text-decoration: underline;
+}
+
 /* ─── Header ─────────────────────────────────────────────────────────── */
 
 .site-header {
@@ -88,18 +107,78 @@ section {
   display: none;
 }
 
+/* On secondary pages (no hero wordmark standing in for the header at the
+   top of the page), show the header statically instead of fixed/hidden. */
+body.page-credits .site-header {
+  position: static;
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+}
+
 /* ─── Hero ───────────────────────────────────────────────────────────── */
 
 .hero {
+  position: relative;
   padding-top: var(--space-4);
   padding-bottom: var(--space-2);
   text-align: center;
 }
 
 .hero-container {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hero-floaters {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.hero-floater {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 9.75rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-box);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%) rotate(var(--rot));
+  animation: hero-float 6s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translate(-50%, -50%) rotate(var(--rot)) translateY(0); }
+  50% { transform: translate(-50%, -50%) rotate(var(--rot)) translateY(-10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-floater {
+    animation: none;
+  }
+}
+
+/* Only show the floaters where there's enough side margin around the
+   centered hero content for them not to crowd the text. Extra bottom
+   padding here (rather than relying on overflow:hidden to hide the ones
+   that dip low) keeps them from ever getting clipped by the section edge. */
+@media (min-width: 1200px) {
+  .hero-floaters {
+    display: block;
+  }
+
+  .hero {
+    padding-bottom: 9rem;
+  }
 }
 
 .hero-desc {
@@ -120,7 +199,7 @@ section {
 
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-2);
   margin-top: var(--space-3);
 }
@@ -221,10 +300,6 @@ section {
 
 /* ─── Responsive ─────────────────────────────────────────────────────── */
 
-@media (max-width: 960px) {
-  .tool-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 body.modal-open {
   overflow: hidden;
 }
@@ -233,10 +308,8 @@ body.modal-open {
   .hero {
     padding-top: var(--space-3);
   }
-  .hero-logo { width: 4rem; }
   .tool-grid { grid-template-columns: 1fr; }
   .tool-featured { grid-template-columns: 1fr; }
-  .modal-gallery { grid-template-columns: repeat(2, 1fr); }
 
   .workflow-steps {
     flex-direction: column;

@@ -16,8 +16,7 @@ $toolsRoot = Join-Path $root "assets\tools"
 $tools = @(
   @{ Name = "Model Painter";           Slug = "model-painter";           Accent = "#E36B20" },
   @{ Name = "Color Puzzle Generator";  Slug = "color-puzzle-generator";  Accent = "#5B8DEF" },
-  @{ Name = "Kit Card Generator";      Slug = "kit-card-generator";      Accent = "#3FA95A" },
-  @{ Name = "3MF Merger";              Slug = "3mf-merger";              Accent = "#E0607E" }
+  @{ Name = "Kit Card Generator";      Slug = "kit-card-generator";      Accent = "#3FA95A" }
 )
 
 $width = 1200

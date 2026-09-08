@@ -33,6 +33,11 @@
   --mm-print-blue:   #5B8DEF;
   --mm-print-violet: #9B7FD4;
 
+  /* Blue wash — same pattern as the amber wash/light pair above, used for
+     UI that should stand out from the amber accent (e.g. the promo banner) */
+  --mm-blue-wash:  #1E2A44;
+  --mm-blue-light: #9DB9F5;
+
   /* Semantic aliases */
   --bg:             var(--mm-charcoal);
   --surface:        var(--mm-surface);

@@ -6,14 +6,19 @@
   <title>Morphomesh — Creative 3D Printing Tools</title>
   <meta name="description" content="Morphomesh is a set of creative 3D printing tools — multi-color painting, photo-to-puzzle, and kit-card layout — built for makers who slice." />
 
-  <!-- Open Graph (og-image asset pending — add assets/og-image.png, 1200x630, once real branding exists) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Morphomesh — Creative 3D Printing Tools" />
   <meta property="og:description" content="Creative 3D printing tools: multi-color painting, photo-to-puzzle, and kit-card layout." />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://morphomesh.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://morphomesh.com/assets/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon-mark.svg" />
-  <!-- TODO: add assets/apple-touch-icon.png (180x180) and assets/favicon.ico once real branding/logo exists -->
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="canonical" href="https://morphomesh.com/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,6 +32,10 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <a class="promo-banner" href="https://3dprintopia.com/" target="_blank" rel="noopener">
+    Check it out at 3D Printopia — Sept 26 &amp; 27, 2026
+  </a>
 
   <header class="site-header">
     <div class="container">
@@ -54,19 +63,11 @@
 
   <main id="main">
     <section id="top" class="hero">
+      <div class="hero-floaters" aria-hidden="true"><!-- populated from heroFloaterPool in js/main.js --></div>
       <div class="container hero-container">
         <div class="hero-brand">
-          <div class="hero-logo" aria-hidden="true">
-            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-              <g stroke="var(--mm-charcoal)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M 320,240 V 110 L 200,170 80,80 v 160 h 74 c 5.71703,-23.64924 20.8207,-35.92956 45.67351,-35.92956 24.85281,0 40.11394,16.49287 44.32649,35.92956 z" fill="var(--mm-print-teal)" />
-                <path d="M 320,260 V 420 L 200,330 80,390 V 260 h 74 c 3.00897,26.35731 20.92062,37.14212 45.77343,37.14212 24.85281,0 39.41223,-10.78481 44.22657,-37.14212 z" fill="var(--mm-print-amber)" />
-              </g>
-            </svg>
-          </div>
           <h1 class="hero-wordmark">
-            <span aria-hidden="true"><span>M</span><span>o</span><span>r</span><span>p</span><span>h</span><span>o</span><span>m</span><span>e</span><span>s</span><span>h</span></span>
-            <span class="visually-hidden">Morphomesh</span>
+            <img src="assets/morphomesh-logo-color-fullname-whitebackgroundtext.png" alt="Morphomesh" />
           </h1>
         </div>
         <p class="hero-tagline">Creative 3D printing tools, built for makers who slice.</p>
@@ -116,7 +117,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Available Now</span>
-          <h2>Four tools, ready today.</h2>
+          <h2>Three tools, ready today.</h2>
           <p>These tools are already functional in the app, with more on the way.</p>
         </div>
 
@@ -179,25 +180,6 @@
               View details<span class="visually-hidden"> for Kit Card Generator</span>
             </button>
           </div>
-
-          <div class="card tool-card">
-            <div class="tool-card-art" aria-hidden="true">
-              <video class="tool-card-media" data-role="video"
-                     poster="assets/tools/3mf-merger/card.jpg"
-                     muted loop playsinline preload="metadata">
-                <source src="assets/tools/3mf-merger/final-clip.mp4" type="video/mp4">
-              </video>
-              <img class="tool-card-media tool-card-media-fallback"
-                   src="assets/tools/3mf-merger/card.jpg" alt="">
-            </div>
-            <div class="tool-card-head">
-              <h3>3MF Merger</h3>
-            </div>
-            <p>Combine multiple 3MF files into one without losing color or material assignments.</p>
-            <button type="button" class="btn btn-secondary tool-card-trigger" data-tool="3mf-merger">
-              View details<span class="visually-hidden"> for 3MF Merger</span>
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -211,61 +193,104 @@
 
     <template id="tpl-model-painter">
       <h2 id="modal-title-model-painter">Model Painter</h2>
-      <p class="modal-description">[Add expanded description for Model Painter]</p>
-      <div class="modal-gallery">
-        <img src="assets/tools/model-painter/gallery-1.jpg" alt="[Add alt text for Model Painter gallery image 1]">
-        <img src="assets/tools/model-painter/gallery-2.jpg" alt="[Add alt text for Model Painter gallery image 2]">
-        <img src="assets/tools/model-painter/gallery-3.jpg" alt="[Add alt text for Model Painter gallery image 3]">
-      </div>
-      <div class="modal-video">
-        <video controls preload="none" poster="assets/tools/model-painter/card.jpg">
-          <source src="assets/tools/model-painter/final-clip.mp4" type="video/mp4">
-        </video>
+      <p class="modal-description">Wrap any image onto the surface of your model. Model Painter projects images directly onto curved geometry, conforming to the model's shape rather than sitting flat on top, then exports with native slicer color data so it prints correctly with your multi-color setup.</p>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/model-painter/card.jpg">
+              <source src="assets/tools/model-painter/final-clip.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/tools/model-painter/gallery-1.jpg" alt="[Add alt text for Model Painter gallery image 1]">
+          </div>
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/model-painter/Flower-Panda_PLA_21h18m_20260825160813-poster.jpg">
+              <source src="assets/tools/model-painter/Flower-Panda_PLA_21h18m_20260825160813.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/model-painter/PXL_20260824_165650053-poster.jpg">
+              <source src="assets/tools/model-painter/PXL_20260824_165650053.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/model-painter/PXL_20260824_172337851-poster.jpg">
+              <source src="assets/tools/model-painter/PXL_20260824_172337851.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/model-painter/PXL_20260827_163330833-poster.jpg">
+              <source src="assets/tools/model-painter/PXL_20260827_163330833.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <button type="button" class="carousel-nav carousel-prev" aria-label="Previous">&#8249;</button>
+        <button type="button" class="carousel-nav carousel-next" aria-label="Next">&#8250;</button>
+        <div class="carousel-thumbs"></div>
       </div>
     </template>
 
     <template id="tpl-color-puzzle-generator">
       <h2 id="modal-title-color-puzzle-generator">Color Puzzle Generator</h2>
-      <p class="modal-description">[Add expanded description for Color Puzzle Generator]</p>
-      <div class="modal-gallery">
-        <img src="assets/tools/color-puzzle-generator/gallery-1.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 1]">
-        <img src="assets/tools/color-puzzle-generator/gallery-2.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 2]">
-        <img src="assets/tools/color-puzzle-generator/gallery-3.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 3]">
-      </div>
-      <div class="modal-video">
-        <video controls preload="none" poster="assets/tools/color-puzzle-generator/card.jpg">
-          <source src="assets/tools/color-puzzle-generator/final-clip.mp4" type="video/mp4">
-        </video>
+      <p class="modal-description">Turn any picture into a 3D puzzle. Drop in an image and Color Puzzle Generator automatically separates it into color-matched, interlocking layers ready to print and assemble as a physical puzzle or wall piece.</p>
+      <p class="modal-description">Prefer a single finished piece instead? A print-in-place mode fuses all the parts together during printing, so it comes off the plate as one permanent object rather than separate pieces to assemble.</p>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/color-puzzle-generator/card.jpg">
+              <source src="assets/tools/color-puzzle-generator/final-clip.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/tools/color-puzzle-generator/gallery-1.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 1]">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/tools/color-puzzle-generator/gallery-2.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 2]">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/tools/color-puzzle-generator/gallery-3.jpg" alt="[Add alt text for Color Puzzle Generator gallery image 3]">
+          </div>
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/color-puzzle-generator/PXL_20260902_195515162-poster.jpg">
+              <source src="assets/tools/color-puzzle-generator/PXL_20260902_195515162.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/color-puzzle-generator/PXL_20260903_183203418-poster.jpg">
+              <source src="assets/tools/color-puzzle-generator/PXL_20260903_183203418.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <button type="button" class="carousel-nav carousel-prev" aria-label="Previous">&#8249;</button>
+        <button type="button" class="carousel-nav carousel-next" aria-label="Next">&#8250;</button>
+        <div class="carousel-thumbs"></div>
       </div>
     </template>
 
     <template id="tpl-kit-card-generator">
       <h2 id="modal-title-kit-card-generator">Kit Card Generator</h2>
-      <p class="modal-description">[Add expanded description for Kit Card Generator]</p>
-      <div class="modal-gallery">
-        <img src="assets/tools/kit-card-generator/gallery-1.jpg" alt="[Add alt text for Kit Card Generator gallery image 1]">
-        <img src="assets/tools/kit-card-generator/gallery-2.jpg" alt="[Add alt text for Kit Card Generator gallery image 2]">
-        <img src="assets/tools/kit-card-generator/gallery-3.jpg" alt="[Add alt text for Kit Card Generator gallery image 3]">
-      </div>
-      <div class="modal-video">
-        <video controls preload="none" poster="assets/tools/kit-card-generator/card.jpg">
-          <source src="assets/tools/kit-card-generator/final-clip.mp4" type="video/mp4">
-        </video>
-      </div>
-    </template>
-
-    <template id="tpl-3mf-merger">
-      <h2 id="modal-title-3mf-merger">3MF Merger</h2>
-      <p class="modal-description">[Add expanded description for 3MF Merger]</p>
-      <div class="modal-gallery">
-        <img src="assets/tools/3mf-merger/gallery-1.jpg" alt="[Add alt text for 3MF Merger gallery image 1]">
-        <img src="assets/tools/3mf-merger/gallery-2.jpg" alt="[Add alt text for 3MF Merger gallery image 2]">
-        <img src="assets/tools/3mf-merger/gallery-3.jpg" alt="[Add alt text for 3MF Merger gallery image 3]">
-      </div>
-      <div class="modal-video">
-        <video controls preload="none" poster="assets/tools/3mf-merger/card.jpg">
-          <source src="assets/tools/3mf-merger/final-clip.mp4" type="video/mp4">
-        </video>
+      <p class="modal-description">Give your printed kits a professional finish. Kit Card Generator automatically arranges all the parts of a kit — STL, 3MF, or a whole folder of files — into a labeled, framed card with parts connected by printed support spurs, so what comes off the plate looks ready to sell, not ready to sort.</p>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <video controls preload="metadata" poster="assets/tools/kit-card-generator/card.jpg">
+              <source src="assets/tools/kit-card-generator/final-clip.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/tools/kit-card-generator/gallery-1.jpg" alt="[Add alt text for Kit Card Generator gallery image 1]">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/tools/kit-card-generator/gallery-2.jpg" alt="[Add alt text for Kit Card Generator gallery image 2]">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/tools/kit-card-generator/gallery-3.jpg" alt="[Add alt text for Kit Card Generator gallery image 3]">
+          </div>
+        </div>
+        <button type="button" class="carousel-nav carousel-prev" aria-label="Previous">&#8249;</button>
+        <button type="button" class="carousel-nav carousel-next" aria-label="Next">&#8250;</button>
+        <div class="carousel-thumbs"></div>
       </div>
     </template>
 
