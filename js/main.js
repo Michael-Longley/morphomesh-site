@@ -96,6 +96,32 @@ function initCarousel(carousel) {
   const nextBtn = carousel.querySelector(".carousel-next");
   if (!track || slides.length === 0) return;
 
+  // Navigating (button or thumbnail) should stop whatever's currently
+  // playing immediately, rather than waiting on the scroll-driven
+  // IntersectionObserver below to notice the old slide left view.
+  const pauseAllVideos = () => {
+    slides.forEach((slide) => slide.querySelector("video")?.pause());
+  };
+
+  // These videos must never produce sound — but native <video controls>
+  // is all-or-nothing (no attribute hides just the volume button while
+  // keeping play/seek/fullscreen). So keep the full native control bar,
+  // and instead snap volume/mute back the instant anything changes them
+  // (the unmute button, a dragged volume slider), making that control
+  // present but functionally inert rather than removing it outright.
+  slides.forEach((slide) => {
+    const video = slide.querySelector("video");
+    if (!video) return;
+    video.muted = true;
+    video.volume = 0;
+    video.addEventListener("volumechange", () => {
+      if (!video.muted || video.volume !== 0) {
+        video.muted = true;
+        video.volume = 0;
+      }
+    });
+  });
+
   thumbsContainer?.replaceChildren(
     ...slides.map((slide, i) => {
       const thumb = document.createElement("button");
@@ -124,6 +150,7 @@ function initCarousel(carousel) {
       }
 
       thumb.addEventListener("click", () => {
+        pauseAllVideos();
         slide.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
       });
       return thumb;
@@ -139,9 +166,11 @@ function initCarousel(carousel) {
   setActive(0);
 
   prevBtn?.addEventListener("click", () => {
+    pauseAllVideos();
     track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
   });
   nextBtn?.addEventListener("click", () => {
+    pauseAllVideos();
     track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
   });
 

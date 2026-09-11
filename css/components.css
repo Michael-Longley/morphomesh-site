@@ -338,15 +338,43 @@
   text-decoration: underline;
 }
 
-.credits-attribution dt {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--text);
+.credits-group h3 {
+  margin-bottom: var(--space-1);
 }
 
-.credits-attribution dd {
-  margin: 0.25rem 0 var(--space-2);
+.credits-note {
   color: var(--text-muted);
+  margin: 0 0 var(--space-2);
+}
+
+/* Each <li> holds only a track title — the rest of incompetech's required
+   attribution ("Title" Kevin MacLeod (incompetech.com) / license line /
+   license URL) is identical for every track, so it's generated here
+   instead of being hand-copied per entry. */
+.credits-track-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.credits-track-list li {
+  color: var(--text-muted);
+}
+
+.credits-track-list li::before {
+  content: '"';
+}
+
+.credits-track-list li::after {
+  content: '" Kevin MacLeod (incompetech.com)\ALicensed under Creative Commons: By Attribution 4.0 License\Ahttp://creativecommons.org/licenses/by/4.0/';
+  white-space: pre-line;
+}
+
+.credits-note a {
+  color: var(--accent-text);
 }
 
 /* ─── Tool detail modal ──────────────────────────────────────────────── */
@@ -425,6 +453,10 @@
   scroll-snap-align: start;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mm-charcoal);
 }
 
 .carousel-slide img {
@@ -434,10 +466,26 @@
 }
 
 .carousel-slide video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: var(--mm-charcoal);
+  /* Size to the video's own intrinsic aspect ratio (capped by the slide),
+     rather than forcing width/height:100% + object-fit — letterboxing
+     that way makes some browsers size the native controls bar to the
+     visible content instead of the full element box, so it reads as
+     "narrower than the video" even though nothing is actually clipped. */
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* These videos are permanently muted (enforced in JS too) — actually
+   remove the mute/volume control from the native bar rather than just
+   leaving it inert. Only Chromium/WebKit expose these pseudo-elements;
+   Firefox has no equivalent, so it still shows the button there (the JS
+   force-mute is what keeps that one harmless). */
+.carousel-slide video::-webkit-media-controls-mute-button,
+.carousel-slide video::-webkit-media-controls-volume-slider,
+.carousel-slide video::-webkit-media-controls-volume-control-container {
+  display: none !important;
 }
 
 .carousel-nav {
