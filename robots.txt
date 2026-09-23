@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /booth/
 
 Sitemap: https://morphomesh.com/sitemap.xml

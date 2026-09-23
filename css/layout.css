@@ -109,7 +109,8 @@ section {
 
 /* On secondary pages (no hero wordmark standing in for the header at the
    top of the page), show the header statically instead of fixed/hidden. */
-body.page-credits .site-header {
+body.page-credits .site-header,
+body.page-booth .site-header {
   position: static;
   transform: none;
   opacity: 1;

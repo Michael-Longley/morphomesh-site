@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Morphomesh booth cheat sheet</title>
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon-mark.svg" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" />
+
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/layout.css" />
+<link rel="stylesheet" href="/css/components.css" />
+
+<style>
+/* Booth cheat sheet — page-specific components, built on the shared tokens
+   rather than a separate palette, so this stays visually part of the site. */
+main.container{padding-top:var(--space-2)}
+#main section{padding:var(--space-3) 0;border-top:1px solid var(--border)}
+#main section:first-of-type{border-top:0}
+#main h2{font-size:1.4rem;margin-bottom:var(--space-2)}
+
+.booth-intro{padding:var(--space-3) 0 0}
+.booth-intro p{color:var(--text-muted);margin:0}
+
+/* Sticky search bar */
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:var(--space-1) 0;padding-top:calc(var(--space-1) + env(safe-area-inset-top,0px));margin-top:calc(-1 * env(safe-area-inset-top,0px));border-bottom:1px solid var(--border)}
+.search{display:flex;align-items:center;gap:.5rem;border:1px solid var(--border);border-radius:var(--radius-btn);background:var(--surface);padding:0 .75rem}
+.search svg{flex:none;color:var(--text-muted)}
+.search input{flex:1;min-width:0;border:0;background:transparent;color:var(--text);font:1rem/1.4 var(--font-body);padding:.65rem 0}
+.search input:focus{outline:none}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-wash)}
+.clear{border:0;background:none;color:var(--text-muted);font:600 .85rem var(--font-body);cursor:pointer;padding:.4rem}
+nav.jump{display:flex;gap:.5rem;overflow-x:auto;padding-top:.6rem;scrollbar-width:none}
+nav.jump::-webkit-scrollbar{display:none}
+nav.jump a{flex:none;text-decoration:none;font:600 .85rem var(--font-body);color:var(--text-muted);border:1px solid var(--border);border-radius:999px;padding:.3rem .8rem}
+nav.jump a:hover{color:var(--text);border-color:var(--accent)}
+
+/* Pitch */
+.pitch{font-size:1.1rem;line-height:1.5;margin:0}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:var(--space-2) 0 0;padding:0;list-style:none;font:600 .9rem var(--font-body)}
+.flow li{border:1px solid var(--border);border-radius:var(--radius-badge);padding:.15rem .6rem;color:var(--text-muted)}
+.flow li.us{background:var(--accent-wash);border-color:var(--accent);color:var(--accent-text)}
+.flow li.arrow{border:0;padding:0 .15rem;color:var(--text-dim)}
+.who{margin:var(--space-2) 0 0;color:var(--text-muted)}
+.who b{color:var(--text)}
+
+/* Tool cards */
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);margin-top:var(--space-2)}
+@media (max-width:680px){.tools{grid-template-columns:1fr}}
+.tool{border-top:3px solid var(--border)}
+.tool.puzzle{border-top-color:var(--mm-print-teal)}
+.tool.painter{border-top-color:var(--mm-print-amber)}
+.tool-head{padding-bottom:.6rem;margin-bottom:.2rem;border-bottom:1px solid var(--border)}
+.tool-head h3{margin:0}
+.tool-head p{margin:.3rem 0 0;color:var(--text-muted);font-size:.95rem}
+.tool dl{margin:var(--space-2) 0 0;padding:0}
+.tool dt{font-weight:600;font-size:.8rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.03em;margin-top:.9rem}
+.tool dt:first-child{margin-top:0}
+.tool dd{margin:.15rem 0 0}
+.tool ol{margin:.3rem 0 0;padding-left:1.2em}
+.tool ol li{margin:.15rem 0}
+.tool .after{color:var(--text-dim);font-style:italic}
+
+/* Q&A */
+.group{margin-bottom:var(--space-3)}
+.group-title{display:flex;align-items:center;gap:.5rem;margin:0 0 .6rem;font:600 1rem var(--font-heading)}
+.dot{width:.8rem;height:.8rem;border-radius:50%;border:1px solid var(--border);flex:none;background:var(--surface)}
+.dot.g{background:var(--mm-print-teal);border-color:var(--mm-print-teal)}
+.dot.o{background:var(--mm-print-amber);border-color:var(--mm-print-amber)}
+details.qa{border:1px solid var(--border);border-radius:var(--radius-btn);background:var(--surface);margin-bottom:.5rem}
+details.qa summary{cursor:pointer;list-style:none;padding:.7rem 2.6rem .7rem .85rem;font-weight:600;position:relative}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::after{content:"+";position:absolute;right:.85rem;top:50%;transform:translateY(-50%);font:700 1.2rem/1 var(--font-heading);color:var(--text-muted)}
+details.qa[open] summary::after{content:"–"}
+details.qa[open] summary{border-bottom:1px solid var(--border)}
+.ans{padding:.6rem .85rem .85rem}
+.ans p{margin:0 0 .5rem;color:var(--text-muted)}.ans p:last-child{margin:0}
+.cue{display:inline-block;background:var(--accent-wash);color:var(--accent-text);padding:.2rem .6rem;border-radius:var(--radius-badge);font-size:.9rem}
+
+/* Wrap-up */
+.close{background:var(--accent-wash);border-color:var(--accent)}
+.close ol{margin:0;padding-left:1.2em}
+.close li{margin-bottom:.7rem}
+.close li:last-child{margin-bottom:0}
+.say{display:block;margin-top:.2rem;font-style:italic;color:var(--text-muted)}
+.why{margin:var(--space-2) 0 0;font-size:.9rem;color:var(--text-dim)}
+
+/* Facts */
+.facts{display:grid;grid-template-columns:minmax(120px,190px) 1fr;margin:0}
+.facts dt,.facts dd{margin:0;padding:.6rem 0;border-top:1px solid var(--border)}
+.facts dt{font-weight:600;color:var(--text)}
+.facts dd{color:var(--text-muted)}
+.facts dt:first-of-type,.facts dt:first-of-type + dd{border-top:0}
+@media (max-width:520px){.facts{grid-template-columns:1fr}.facts dd{border-top:0;padding-top:0}}
+
+/* Parts */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 var(--space-2)}
+.filters button{font:600 .85rem var(--font-body);border:1px solid var(--border);border-radius:999px;padding:.35rem .9rem;background:var(--surface);color:var(--text);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);color:var(--mm-charcoal);border-color:var(--accent)}
+.legend{font-size:.85rem;color:var(--text-dim);margin:-.2rem 0 var(--space-2)}
+.parts{display:grid;gap:.6rem}
+.part{display:grid;grid-template-columns:2.6rem 1fr;border:1px solid var(--border);border-radius:var(--radius-btn);background:var(--surface);overflow:hidden}
+.num{display:flex;align-items:flex-start;justify-content:center;padding-top:.7rem;font:700 1rem var(--font-heading);border-right:1px solid var(--border);color:var(--text-dim)}
+.part[data-tool="puzzle"] .num{color:var(--mm-print-teal)}
+.part[data-tool="painter"] .num{color:var(--mm-print-amber)}
+.part[data-tool="preview"] .num{background:repeating-linear-gradient(135deg,var(--mm-print-teal) 0 6px,var(--mm-print-amber) 6px 12px);color:var(--mm-charcoal)}
+.part-body{padding:.6rem .85rem .7rem}
+.part-name{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .6rem}
+.part-name h3{font-size:1rem;margin:0}
+.tag{font-size:.72rem;font-weight:600;border-radius:var(--radius-badge);padding:.05rem .5rem;border:1px solid currentColor}
+.tag.puzzle{color:var(--mm-print-teal)}.tag.painter{color:var(--mm-print-amber)}.tag.preview{color:var(--text-muted)}
+.tag.fan{color:var(--text-dim);border-style:dashed}
+.src{margin:.4rem 0 0;font-size:.9rem;display:grid;grid-template-columns:auto 1fr;gap:.1rem .6rem}
+.src span:nth-child(odd){color:var(--text-dim)}
+.note{margin:.4rem 0 0;font-size:.9rem;color:var(--text-muted)}
+.need{background:var(--surface-raised);color:var(--mm-print-coral);font-weight:600;font-size:.8rem;padding:0 .4rem;border-radius:var(--radius-badge);white-space:nowrap}
+
+.callout{border:1px dashed var(--border);border-radius:var(--radius-box);padding:.8rem .9rem;margin-top:var(--space-2);font-size:.9rem;color:var(--text-muted)}
+.callout p{margin:0 0 .4rem}.callout p:last-child{margin:0}
+
+ul.plain{margin:0;padding-left:1.1em}
+ul.plain li{margin-bottom:.5rem;color:var(--text-muted)}
+ul.plain b{color:var(--text)}
+
+.empty{display:none;text-align:center;padding:var(--space-3) var(--space-2);border:1px dashed var(--border);border-radius:var(--radius-box);margin-top:var(--space-3);color:var(--text-muted)}
+.empty.show{display:block}
+[hidden]{display:none!important}
+input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+main.searching{display:flex;flex-direction:column}
+main.searching > *{order:3}
+main.searching #questions{order:1}
+main.searching #parts{order:2}
+main.searching #empty{order:0}
+
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body class="page-booth">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 400 500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <path d="M 320,240 V 110 L 200,170 80,80 v 160 h 74 c 5.71703,-23.64924 20.8207,-35.92956 45.67351,-35.92956 24.85281,0 40.11394,16.49287 44.32649,35.92956 z" />
+          <path d="M 320,260 V 420 L 200,330 80,390 V 260 h 74 c 3.00897,26.35731 20.92062,37.14212 45.77343,37.14212 24.85281,0 39.41223,-10.78481 44.22657,-37.14212 z" />
+        </g>
+      </svg>
+      <span class="brand-wordmark">Morphomesh</span>
+    </a>
+    <span class="pill">Booth 417</span>
+  </div>
+</header>
+
+<div class="container booth-intro">
+  <h1>Booth cheat sheet</h1>
+  <p>3D Printopia, Sept 26–27, 2026 · Pennsylvania Convention Center, Philadelphia</p>
+</div>
+
+<div class="bar">
+  <div class="container">
+    <label class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input id="q" type="search" placeholder="Search answers and parts" autocomplete="off" aria-label="Search answers and parts">
+      <button class="clear" id="clear" type="button" hidden>Clear</button>
+    </label>
+    <nav class="jump" aria-label="Sections">
+      <a href="#pitch">Pitch</a>
+      <a href="#tools">Tools</a>
+      <a href="#questions">Questions</a>
+      <a href="#wrapup">Wrap-up</a>
+      <a href="#facts">Status &amp; specs</a>
+      <a href="#parts">Parts</a>
+      <a href="#stuck">Stuck?</a>
+    </nav>
+  </div>
+</div>
+
+<main class="container" id="main">
+
+  <section id="pitch" data-searchable>
+    <h2>The pitch</h2>
+    <div class="card">
+      <p class="pitch">Morphomesh is a pre-slicer design suite. It gets your model ready for printing before it ever hits the slicer. Today we're showing two tools: the Color Puzzle Generator and the Model Painter.</p>
+      <ol class="flow" aria-label="Where Morphomesh fits">
+        <li>Model file</li><li class="arrow" aria-hidden="true">›</li>
+        <li class="us">Morphomesh</li><li class="arrow" aria-hidden="true">›</li>
+        <li>Your slicer</li><li class="arrow" aria-hidden="true">›</li>
+        <li>Printer</li>
+      </ol>
+      <p class="who"><b>Who it's for:</b> novice modelers who want to customize existing models and make them their own, and experienced modelers who want to take their pieces from 3D prints to products.</p>
+    </div>
+  </section>
+
+  <section id="tools">
+    <h2>The two tools</h2>
+    <div class="tools">
+      <article class="card tool puzzle">
+        <div class="tool-head">
+          <h3>Color Puzzle Generator</h3>
+          <p>Turn an image into a model, as a color-separated puzzle or a print-in-place piece.</p>
+        </div>
+        <dl>
+          <dt>Input</dt><dd>An image: vector, PNG, JPG and more. Simpler images work best.</dd>
+          <dt>Output</dt><dd>A 3MF with each color as its own model.</dd>
+          <dt>Modes</dt><dd><b>Print in Place:</b> one solid piece, zero gap.<br><b>Puzzle:</b> separate pieces with adjustable tolerance.</dd>
+          <dt>How it works</dt>
+          <dd><ol>
+            <li>Load your image</li>
+            <li>Tune resolution and color count using the preview</li>
+            <li>Merge, skip, or set colors as background</li>
+            <li>Configure the model: mode, tolerance, thickness</li>
+            <li>Generate</li>
+          </ol><span class="after">Then slice and print as usual.</span></dd>
+          <dt>Show them</dt><dd>#1 Album Coasters for Print in Place. Dragonfly, Love, Punk Monkey or Tulip for Puzzle.</dd>
+          <dt>Be upfront about</dt><dd>16-color cap for now (likely lifted before beta). Busy images and photos get simplified.</dd>
+        </dl>
+      </article>
+
+      <article class="card tool painter">
+        <div class="tool-head">
+          <h3>Model Painter</h3>
+          <p>Customize your favorite model with images, QR codes, text, or hand-painted designs.</p>
+        </div>
+        <dl>
+          <dt>Input</dt><dd>A 3D model (STL, 3MF), plus an optional image.</dd>
+          <dt>Output</dt><dd>3MF object(s) with the colors painted on.</dd>
+          <dt>Paint methods</dt><dd>Image projection, hand painting, text, QR codes.</dd>
+          <dt>How it works</dt>
+          <dd><ol>
+            <li>Load your STL or 3MF</li>
+            <li>Pick a paint method</li>
+            <li>Configure it and move it into place</li>
+            <li>Apply it; repeat steps 2–4 as needed</li>
+            <li>Optionally edit existing layers</li>
+            <li>Export the 3MF</li>
+          </ol><span class="after">Then slice and print as usual.</span></dd>
+          <dt>Show them</dt><dd>#10 Flag Duck for mirrored sides. #14 Double Decker Bus for layered images.</dd>
+          <dt>Be upfront about</dt><dd>Undercuts (surfaces that curl back on themselves) don't work. Some shapes warp the image. More colors means more purge.</dd>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section id="questions">
+    <h2>Questions</h2>
+
+    <div class="group" data-group>
+      <h3 class="group-title"><span class="dot n"></span>General</h3>
+
+      <details class="qa"><summary>Why not just do this in my slicer?</summary><div class="ans">
+        <p>Slicers are built to slice. Bolting model-editing features onto them makes them more complex and more likely to break. A separate prep step lets us add any feature we want, work across every slicer, and not wait on their release cycles.</p></div></details>
+
+      <details class="qa"><summary>Will it work with my printer, AMS or MMU?</summary><div class="ans">
+        <p>Yes, the suite works with any printer. For Model Painter specifically, AMS and MMU setups produce a lot of purge waste compared to tool changers, so tool changers are the best fit for painting.</p></div></details>
+
+      <details class="qa"><summary>Is it free? What will it cost?</summary><div class="ans">
+        <p>It won't be free. Pricing is still being worked out, and we're looking seriously at a one-time purchase option.</p>
+        <p class="cue">Bring up the hardware survey (see Wrap-up).</p></div></details>
+
+      <details class="qa"><summary>Can I use it on files I bought or downloaded?</summary><div class="ans">
+        <p>Yes. Any geometry file works: bought, self-modeled, or downloaded from a model repository. Printing or selling the results still follows that model's own license.</p>
+        <p><b>Selling what you make?</b> We're planning a commercial license for the suite; details are still being decided.</p>
+        <p class="cue">Point them to the mailing list.</p></div></details>
+
+      <details class="qa"><summary>When can I get it?</summary><div class="ans">
+        <p>No release date yet. We're working toward a limited closed beta. The best way to hear first is the mailing list.</p></div></details>
+
+      <details class="qa"><summary>Does it run locally or in the cloud? Do I need a powerful PC?</summary><div class="ans">
+        <p>Hybrid, to save users money. Run it locally on stronger hardware, or eventually queue jobs on our cloud platform.</p>
+        <p class="cue">Perfect lead-in to the hardware survey.</p></div></details>
+
+      <details class="qa"><summary>How long does processing take?</summary><div class="ans">
+        <p>Depends on the model, roughly 1 to 10 minutes.</p></div></details>
+
+      <details class="qa"><summary>Can I tweak the result in my slicer?</summary><div class="ans">
+        <p>Absolutely. We're not replacing your slicer. We handle the complex operations up front, and you fine-tune before printing.</p></div></details>
+
+      <details class="qa"><summary>Can I use both tools on the same model?</summary><div class="ans">
+        <p>Yes. There are a few steps in between right now, and we're working to smooth that out as we add more tools.</p></div></details>
+
+      <details class="qa"><summary>Is the Mando Helmet / Zelda Sword official?</summary><div class="ans">
+        <p>No. They're fan pieces, not officially licensed. We made them to show off the tools, using public domain or CC parts and AI-generated images.</p></div></details>
+    </div>
+
+    <div class="group" data-group>
+      <h3 class="group-title"><span class="dot g"></span>Color Puzzle Generator</h3>
+
+      <details class="qa"><summary>Is there a color limit?</summary><div class="ans">
+        <p>16 for now. That's a printer limit more than a software one, and it'll likely be removed before the beta.</p></div></details>
+
+      <details class="qa"><summary>Can I pick or merge colors?</summary><div class="ans">
+        <p>Colors are auto-detected from the image composition. You can merge them in the tool.</p></div></details>
+
+      <details class="qa"><summary>What about gradients, shadows, or photos?</summary><div class="ans">
+        <p>They get simplified: merged into neighboring colors, or given an in-between color for the gradient section.</p></div></details>
+
+      <details class="qa"><summary>Is it separate pieces or one print?</summary><div class="ans">
+        <p>Your choice, with two modes. <b>Print in Place</b> has zero gap between colors, so it prints as one piece that can't come apart. <b>Puzzle</b> makes separate pieces with a tolerance you set.</p>
+        <p>These may become two separate tools later.</p></div></details>
+
+      <details class="qa"><summary>What's the minimum detail size?</summary><div class="ans">
+        <p>Configurable, based on your nozzle. It also cleans up noise that won't print well. Like lithophanes, Print in Place pieces can be printed vertically for better resolution.</p></div></details>
+
+      <details class="qa"><summary>Can I set thickness, backing, or a border?</summary><div class="ans">
+        <p>Yes. You choose which color is the background (or none) and the thickness of the parts and backing.</p></div></details>
+
+      <details class="qa"><summary>Do the pieces need glue?</summary><div class="ans">
+        <p>Print in Place comes out as one piece, no glue. Puzzle pieces fit as tight or loose as you set them, depending on your printer's tolerance.</p></div></details>
+
+      <details class="qa"><summary>Can I use my own logo or artwork?</summary><div class="ans">
+        <p>Yes, with no limits beyond what your printer can do. Clean lines and distinct colors work best.</p>
+        <p class="cue">Selling them? Mention the planned commercial license.</p></div></details>
+    </div>
+
+    <div class="group" data-group>
+      <h3 class="group-title"><span class="dot o"></span>Model Painter</h3>
+
+      <details class="qa"><summary>How do I place the image?</summary><div class="ans">
+        <p>You position, rotate, and scale it yourself. You can also ignore colors to remove backgrounds and change resolution for more detail.</p></div></details>
+
+      <details class="qa"><summary>How fine can the detail get?</summary><div class="ans">
+        <p>It depends on print orientation. Printing flat, you're limited by nozzle size. Printing tall, you're limited by layer height.</p></div></details>
+
+      <details class="qa"><summary>Is it surface only, or deeper?</summary><div class="ans">
+        <p>You set the paint depth. Deeper wraps better but can cause odd colors in spots. It also enables clean mirrored sides: the same image, flipped, on both faces.</p>
+        <p class="cue">Show #10 Flag Duck.</p></div></details>
+
+      <details class="qa"><summary>How many colors can one model use?</summary><div class="ans">
+        <p>As many as your printer can handle.</p></div></details>
+
+      <details class="qa"><summary>Does it work on complex shapes?</summary><div class="ans">
+        <p>It works on concave and convex shapes. Some shapes warp the image, and undercuts (surfaces that curl back on themselves) don't work.</p></div></details>
+
+      <details class="qa"><summary>Can I paint by hand?</summary><div class="ans">
+        <p>Yes. You can paint by hand, or add text and QR codes. The image is optional.</p></div></details>
+
+      <details class="qa"><summary>How much filament goes to purge?</summary><div class="ans">
+        <p>It depends entirely on the model. You're adding more colors than a normal print, so expect more purge. Tool changers help the most.</p></div></details>
+
+      <details class="qa"><summary>Will it work in my slicer?</summary><div class="ans">
+        <p>It ships ready for Bambu Studio, PrusaSlicer, OrcaSlicer, and Snapmaker Orca. For any other slicer, you paint a provided sample file once and it learns how to paint for that slicer.</p></div></details>
+    </div>
+  </section>
+
+  <section id="wrapup">
+    <h2>Before they walk away</h2>
+    <div class="card close">
+      <ol>
+        <li><b>Mailing list and giveaway</b>
+          <span class="say">"Want to hear when the beta opens? Scan the QR code on the maker chip or banner. You'll also be entered to win one of these prints; we're giving some away Sunday near the end of the show."</span></li>
+        <li><b>Hardware survey</b>
+          <span class="say">"Right after the show we're sending a short hardware survey. It tells us what the community is running, so we can target the right performance for each hardware range."</span>
+          Joining the mailing list gets them the survey.</li>
+      </ol>
+      <p class="why">Why it matters: survey results decide our pricing approach (one-time purchase or usage-based). Every sign-up is a potential response, so bring it up even if they don't ask about price.</p>
+    </div>
+  </section>
+
+  <section id="facts">
+    <h2>Status &amp; specs</h2>
+    <div class="card">
+      <dl class="facts">
+        <dt>Status</dt><dd>Working toward a limited closed beta. No dates yet.</dd>
+        <dt>Pricing</dt><dd>Not final and not free. Options include one-time purchase and token or usage-based models.</dd>
+        <dt>Commercial license</dt><dd>Planned; details to be decided.</dd>
+        <dt>How to get it</dt><dd>Join the mailing list via the QR code on the maker chip or banner.</dd>
+        <dt>Input formats</dt><dd>Images (vector, PNG, JPG and more) and 3D models (STL, 3MF)</dd>
+        <dt>Output format</dt><dd>3MF</dd>
+        <dt>Slicers</dt><dd>Built in: Bambu Studio, PrusaSlicer, OrcaSlicer, Snapmaker Orca. Any other slicer with a one-time sample calibration.</dd>
+        <dt>Printers</dt><dd>Any printer. Tool changers are best for Model Painter.</dd>
+        <dt>Runs on</dt><dd>Windows, Mac, Linux. Locally on stronger hardware, or on a cloud queue (coming later).</dd>
+        <dt>Account</dt><dd>Required, for cloud compute.</dd>
+        <dt>Processing time</dt><dd>About 1–10 minutes, depending on the model.</dd>
+        <dt>Other tools</dt><dd>Not demoed today: Kit Card Generator, Jigsaw Puzzle Generator, Passthrough Generator, Clicker Generator.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="parts">
+    <h2>What's on the table</h2>
+    <div class="filters" role="group" aria-label="Filter parts by tool">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="puzzle" aria-pressed="false">Color Puzzle</button>
+      <button type="button" data-filter="painter" aria-pressed="false">Model Painter</button>
+      <button type="button" data-filter="preview" aria-pressed="false">Preview</button>
+    </div>
+    <p class="legend">Always name the original creator when talking about a piece. <span class="need">source needed</span> means we're still tracking it down. Full descriptions are on each part's tent card.</p>
+    <div class="parts" id="partList"></div>
+    <div class="callout">
+      <p><b>Fan art:</b> the Mando Helmet and Zelda Sword are fan pieces, not officially licensed, made from public domain or CC parts and AI-generated images.</p>
+      <p><b>Preview tool:</b> the Zelda Sword's part-split tool is unreleased. Don't promise timing.</p>
+    </div>
+  </section>
+
+  <section id="stuck">
+    <h2>If you're stuck</h2>
+    <div class="card">
+      <ul class="plain">
+        <li><b>Don't know the answer?</b> "Great question, let me grab someone who can answer that." Or point them to the contact email at the bottom of the website.</li>
+        <li><b>Don't promise:</b> release dates, final pricing, commercial license terms, or features beyond what's shown.</li>
+        <li><b>Giveaway:</b> prints given away Sunday, Sept 27, near the end of the show, drawn from mailing list sign-ups.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="empty" id="empty"><b>No matches.</b><br>Try a shorter word, or grab someone who can answer it.</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>For Morphomesh booth volunteers — <span id="year">2026</span>. Please don't share this link.</span>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+const N = "source needed";
+const parts = [
+  {n:1,  name:"Album Coasters", tool:"puzzle", mode:"Print in Place", img:"AI generated", note:"Printed vertically, like a lithophane, for better resolution."},
+  {n:2,  name:"Butterfly", tool:"puzzle", mode:"Print in Place", img:"Photo by RacerX"},
+  {n:3,  name:"Morphomesh All the Things", tool:"puzzle", mode:"Print in Place", img:"AI generated"},
+  {n:4,  name:"Color Puzzle Generator", tool:"puzzle", mode:"Puzzle", img:"AI generated"},
+  {n:5,  name:"Dragonfly Puzzle", tool:"puzzle", mode:"Puzzle", img:N},
+  {n:6,  name:"Tech Puzzle", tool:"puzzle", mode:"Puzzle", img:"AI generated, based on [source needed]"},
+  {n:7,  name:"Love Puzzle", tool:"puzzle", mode:"Puzzle", img:"Public domain"},
+  {n:8,  name:"Punk Monkey Puzzle", tool:"puzzle", mode:"Puzzle", img:"Public domain"},
+  {n:9,  name:"Tulip Puzzle", tool:"puzzle", mode:"Puzzle", img:"Public domain"},
+  {n:10, name:"Flag Duck", tool:"painter", model:N, img:N, note:"Mirrored image on both sides. Go-to example for paint depth."},
+  {n:11, name:"Spartan Helmet (Low Poly)", tool:"painter", model:"LowPolyFigures on Printables, public domain (flagged AI generated)", img:"Feathers [source needed], horse motif [source needed]"},
+  {n:12, name:"Motorcycle Billboard", tool:"painter", model:N, img:"Old family photo"},
+  {n:13, name:"Large Lego Man", tool:"painter", model:N, img:"Several; a mix of AI generated and public domain (full list on the website)"},
+  {n:14, name:"Double Decker Bus", tool:"painter", model:N, img:N, note:"Layered images: the inner windows are painted differently from the outside."},
+  {n:15, name:"Leopard Glasses", tool:"painter", model:N, img:N},
+  {n:16, name:"Rocket Bank", tool:"painter", model:"Printables, creator [source needed]", img:"Public domain"},
+  {n:17, name:"Low Poly Skull", tool:"painter", model:N, img:"Public domain wallpaper pattern"},
+  {n:18, name:"Flower Panda", tool:"painter", model:"STLFlix, creator [source needed]", img:"Public domain wallpaper pattern"},
+  {n:19, name:"Dragon Book Bank", tool:"painter", model:"\"Book Bank\" on Printables, creator [source needed]", img:"Public domain dragon eye"},
+  {n:20, name:"Mando Helmet", tool:"painter", fan:true, model:N, img:"Public domain wallpaper pattern, Morphomesh logo"},
+  {n:21, name:"Poop Dumpster", tool:"painter", model:N, img:"RacerX, AI generated"},
+  {n:22, name:"Morphomesh Billboard", tool:"painter", model:N, img:"Beach photo by RacerX, Morphomesh text (inverted) AI generated"},
+  {n:23, name:"Zelda Sword", tool:"preview", fan:true, model:N, img:"AI generated", note:"Painted with Model Painter, then split with a very early tool that keeps paint through part splits. Unreleased."}
+];
+const toolLabel = {puzzle:"Color Puzzle", painter:"Model Painter", preview:"Preview tool"};
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = s => s === N ? `<span class="need">${N}</span>`
+  : esc(s).replace(/\[source needed\]/g, `<span class="need">${N}</span>`);
+
+const list = document.getElementById("partList");
+list.innerHTML = parts.map(p => `
+  <article class="part" data-tool="${p.tool}">
+    <div class="num">${p.n}</div>
+    <div class="part-body">
+      <div class="part-name">
+        <h3>${esc(p.name)}</h3>
+        <span class="tag ${p.tool}">${toolLabel[p.tool]}${p.mode ? ": " + p.mode : ""}</span>
+        ${p.fan ? '<span class="tag fan">Fan art</span>' : ""}
+      </div>
+      <div class="src">
+        ${p.model ? `<span>Model</span><span>${fmt(p.model)}</span>` : ""}
+        <span>Image</span><span>${fmt(p.img)}</span>
+      </div>
+      ${p.note ? `<p class="note">${esc(p.note)}</p>` : ""}
+    </div>
+  </article>`).join("");
+
+// Filters
+let filter = "all";
+const fbtns = document.querySelectorAll(".filters button");
+fbtns.forEach(b => b.addEventListener("click", () => {
+  filter = b.dataset.filter;
+  fbtns.forEach(x => x.setAttribute("aria-pressed", x === b));
+  apply();
+}));
+
+// Search
+const q = document.getElementById("q");
+const clearBtn = document.getElementById("clear");
+const qas = [...document.querySelectorAll("details.qa")];
+const groups = [...document.querySelectorAll("[data-group]")];
+const partEls = [...document.querySelectorAll(".part")];
+const empty = document.getElementById("empty");
+const blocks = ["pitch","tools","wrapup","facts","stuck"].map(id => document.getElementById(id));
+
+function apply(){
+  const term = q.value.trim().toLowerCase();
+  clearBtn.hidden = !term;
+  document.querySelector('main').classList.toggle('searching', !!term);
+  let hits = 0;
+
+  qas.forEach(d => {
+    const match = !term || d.textContent.toLowerCase().includes(term);
+    d.hidden = !match;
+    if (term) d.open = match;
+    if (match && term) hits++;
+  });
+  if (!term) qas.forEach(d => d.open = false);
+  groups.forEach(g => g.hidden = !g.querySelector("details.qa:not([hidden])"));
+  document.getElementById("questions").hidden = !!term && !groups.some(g => !g.hidden);
+
+  partEls.forEach(el => {
+    const okTool = filter === "all" || el.dataset.tool === filter;
+    const okText = !term || el.textContent.toLowerCase().includes(term);
+    el.hidden = !(okTool && okText);
+    if (term && okTool && okText) hits++;
+  });
+  document.getElementById("parts").hidden = !!term && !partEls.some(e => !e.hidden);
+
+  blocks.forEach(b => {
+    const match = !term || b.textContent.toLowerCase().includes(term);
+    b.hidden = !match;
+    if (match && term) hits++;
+  });
+
+  empty.classList.toggle("show", !!term && hits === 0);
+}
+q.addEventListener("input", apply);
+clearBtn.addEventListener("click", () => { q.value = ""; apply(); q.focus(); });
+</script>
+</body>
+</html>
