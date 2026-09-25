@@ -107,11 +107,13 @@ details.qa[open] summary{border-bottom:1px solid var(--border)}
 .filters button[aria-pressed="true"]{background:var(--accent);color:var(--mm-charcoal);border-color:var(--accent)}
 .legend{font-size:.85rem;color:var(--text-dim);margin:-.2rem 0 var(--space-2)}
 .parts{display:grid;gap:.6rem}
-.part{display:grid;grid-template-columns:2.6rem 1fr;border:1px solid var(--border);border-radius:var(--radius-btn);background:var(--surface);overflow:hidden}
-.num{display:flex;align-items:flex-start;justify-content:center;padding-top:.7rem;font:700 1rem var(--font-heading);border-right:1px solid var(--border);color:var(--text-dim)}
-.part[data-tool="puzzle"] .num{color:var(--mm-print-teal)}
-.part[data-tool="painter"] .num{color:var(--mm-print-amber)}
-.part[data-tool="preview"] .num{background:repeating-linear-gradient(135deg,var(--mm-print-teal) 0 6px,var(--mm-print-amber) 6px 12px);color:var(--mm-charcoal)}
+.part{display:grid;grid-template-columns:6px 1fr;border:1px solid var(--border);border-radius:var(--radius-btn);background:var(--surface);overflow:hidden}
+.num{background:var(--border)}
+.part[data-tool="puzzle"] .num{background:var(--mm-print-teal)}
+.part[data-tool="painter"] .num{background:var(--mm-print-amber)}
+.part[data-tool="preview"] .num{background:repeating-linear-gradient(135deg,var(--mm-print-teal) 0 6px,var(--mm-print-amber) 6px 12px)}
+.credit-link{font-size:.85rem;color:var(--accent-text);text-decoration:none;margin-left:auto}
+.credit-link:hover{text-decoration:underline}
 .part-body{padding:.6rem .85rem .7rem}
 .part-name{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .6rem}
 .part-name h3{font-size:1rem;margin:0}
@@ -221,7 +223,7 @@ main.searching #empty{order:0}
             <li>Configure the model: mode, tolerance, thickness</li>
             <li>Generate</li>
           </ol><span class="after">Then slice and print as usual.</span></dd>
-          <dt>Show them</dt><dd>#1 Album Coasters for Print in Place. Dragonfly, Love, Punk Monkey or Tulip for Puzzle.</dd>
+          <dt>Show them</dt><dd>Album Coasters for Print in Place. Dragonfly, Love, Punk Monkey or Tulip for Puzzle.</dd>
           <dt>Be upfront about</dt><dd>16-color cap for now (likely lifted before beta). Busy images and photos get simplified.</dd>
         </dl>
       </article>
@@ -244,7 +246,7 @@ main.searching #empty{order:0}
             <li>Optionally edit existing layers</li>
             <li>Export the 3MF</li>
           </ol><span class="after">Then slice and print as usual.</span></dd>
-          <dt>Show them</dt><dd>#10 Flag Duck for mirrored sides. #14 Double Decker Bus for layered images.</dd>
+          <dt>Show them</dt><dd>Flag Duck for mirrored sides. Double Decker Bus for layered images.</dd>
           <dt>Be upfront about</dt><dd>Undercuts (surfaces that curl back on themselves) don't work. Some shapes warp the image. More colors means more purge.</dd>
         </dl>
       </article>
@@ -333,7 +335,7 @@ main.searching #empty{order:0}
 
       <details class="qa"><summary>Is it surface only, or deeper?</summary><div class="ans">
         <p>You set the paint depth. Deeper wraps better but can cause odd colors in spots. It also enables clean mirrored sides: the same image, flipped, on both faces.</p>
-        <p class="cue">Show #10 Flag Duck.</p></div></details>
+        <p class="cue">Show the Flag Duck.</p></div></details>
 
       <details class="qa"><summary>How many colors can one model use?</summary><div class="ans">
         <p>As many as your printer can handle.</p></div></details>
@@ -398,7 +400,7 @@ main.searching #empty{order:0}
     <div class="parts" id="partList"></div>
     <div class="callout">
       <p><b>Fan art:</b> the Mando Helmet and Zelda Sword are fan pieces, not officially licensed, made from public domain or CC parts and AI-generated images.</p>
-      <p><b>Preview tool:</b> the Zelda Sword's part-split tool is unreleased. Don't promise timing.</p>
+      <p><b>Preview tool:</b> the Zelda Sword's part-split tool is the newest piece of the suite. Don't promise when it will be included.</p>
     </div>
   </section>
 
@@ -427,44 +429,52 @@ main.searching #empty{order:0}
 <script>
 const N = "source needed";
 const parts = [
-  {n:1,  name:"Album Coasters", tool:"puzzle", mode:"Print in Place", img:"AI generated", note:"Printed vertically, like a lithophane, for better resolution."},
-  {n:2,  name:"Butterfly", tool:"puzzle", mode:"Print in Place", img:"Photo by RacerX"},
-  {n:3,  name:"Morphomesh All the Things", tool:"puzzle", mode:"Print in Place", img:"AI generated"},
-  {n:4,  name:"Color Puzzle Generator", tool:"puzzle", mode:"Puzzle", img:"AI generated"},
-  {n:5,  name:"Dragonfly Puzzle", tool:"puzzle", mode:"Puzzle", img:N},
-  {n:6,  name:"Tech Puzzle", tool:"puzzle", mode:"Puzzle", img:"AI generated, based on [source needed]"},
-  {n:7,  name:"Love Puzzle", tool:"puzzle", mode:"Puzzle", img:"Public domain"},
-  {n:8,  name:"Punk Monkey Puzzle", tool:"puzzle", mode:"Puzzle", img:"Public domain"},
-  {n:9,  name:"Tulip Puzzle", tool:"puzzle", mode:"Puzzle", img:"Public domain"},
-  {n:10, name:"Flag Duck", tool:"painter", model:N, img:N, note:"Mirrored image on both sides. Go-to example for paint depth."},
-  {n:11, name:"Spartan Helmet (Low Poly)", tool:"painter", model:"LowPolyFigures on Printables, public domain (flagged AI generated)", img:"Feathers [source needed], horse motif [source needed]"},
-  {n:12, name:"Motorcycle Billboard", tool:"painter", model:N, img:"Old family photo"},
-  {n:13, name:"Large Lego Man", tool:"painter", model:N, img:"Several; a mix of AI generated and public domain (full list on the website)"},
-  {n:14, name:"Double Decker Bus", tool:"painter", model:N, img:N, note:"Layered images: the inner windows are painted differently from the outside."},
-  {n:15, name:"Leopard Glasses", tool:"painter", model:N, img:N},
-  {n:16, name:"Rocket Bank", tool:"painter", model:"Printables, creator [source needed]", img:"Public domain"},
-  {n:17, name:"Low Poly Skull", tool:"painter", model:N, img:"Public domain wallpaper pattern"},
-  {n:18, name:"Flower Panda", tool:"painter", model:"STLFlix, creator [source needed]", img:"Public domain wallpaper pattern"},
-  {n:19, name:"Dragon Book Bank", tool:"painter", model:"\"Book Bank\" on Printables, creator [source needed]", img:"Public domain dragon eye"},
-  {n:20, name:"Mando Helmet", tool:"painter", fan:true, model:N, img:"Public domain wallpaper pattern, Morphomesh logo"},
-  {n:21, name:"Poop Dumpster", tool:"painter", model:N, img:"RacerX, AI generated"},
-  {n:22, name:"Morphomesh Billboard", tool:"painter", model:N, img:"Beach photo by RacerX, Morphomesh text (inverted) AI generated"},
-  {n:23, name:"Zelda Sword", tool:"preview", fan:true, model:N, img:"AI generated", note:"Painted with Model Painter, then split with a very early tool that keeps paint through part splits. Unreleased."}
+  {name:"Album Coasters", tool:"puzzle", mode:"Print in Place", img:"AI generated", note:"Printed vertically, like a lithophane, for better resolution."},
+  {name:"Butterfly", tool:"puzzle", mode:"Print in Place", img:"Photo by RacerX"},
+  {name:"Morphomesh All the Things", tool:"puzzle", mode:"Print in Place", img:"AI generated"},
+  {name:"Halloween Coasters", tool:"puzzle", mode:"Print in Place", img:"Vintage Halloween Skeleton on Moon, Vintage Halloween Poster, and Bat Creature with Tree Wings by Linnaea Mallette; Vintage Halloween Landscape by Petr Kratochvil; all CC0"},
+  {name:"Color Puzzle Generator", tool:"puzzle", mode:"Puzzle", img:"AI generated"},
+  {name:"Dragonfly Puzzle", tool:"puzzle", mode:"Puzzle", img:"Dragon Colorful Art Illustration by Karen Arnold, CC0"},
+  {name:"Tech Puzzle", tool:"puzzle", mode:"Puzzle", img:"AI generated, based on Retro TV Vintage Television Set by Anthony Poynton, CC0"},
+  {name:"Love Puzzle", tool:"puzzle", mode:"Puzzle", img:"Public domain"},
+  {name:"Punk Monkey Puzzle", tool:"puzzle", mode:"Puzzle", img:"Abstract Punk Art Face by Circe Denyer, CC0"},
+  {name:"Tulip Puzzle", tool:"puzzle", mode:"Puzzle", img:"Stained Glass Tulip Flowers by Sulvia, CC0"},
+  {name:"Vivienne Puzzle", tool:"puzzle", mode:"Puzzle + Print in Place", img:"AI generated", note:"Both modes in one: Print in Place back plate, puzzle letters."},
+  {name:"Flag Duck", tool:"painter", model:"Rubber Duck by MaoHa, Printables, CC0", img:"American Flag by Piotr Siedlecki, CC0", note:"Mirrored image on both sides. Go-to example for paint depth."},
+  {name:"Spartan Helmet (Low Poly)", tool:"painter", model:"LowPolyFigures on Printables, public domain (flagged AI generated)", img:"Pendant with Apollo with His Lyre, Rijksmuseum, CC0; The Battle around the Shield and Lance by Giovanni Jacopo Caraglio after Raphael, Art Institute of Chicago, CC0; feathers AI generated"},
+  {name:"Motorcycle Billboard", tool:"painter", model:"Scale Billboard Prop by Celta, Printables, CC BY-SA", img:"Old family photo"},
+  {name:"Large Lego Man", tool:"painter", model:"Lego Minifigure - 4x size by Garth, Printables, CC BY", img:"Mix of AI generated and public domain; full list at morphomesh.com/credits"},
+  {name:"Double Decker Bus", tool:"painter", model:"SciFi Vehicle Set 2 - Medium Trucks and Buses - 6mm by Shiaic3D, Printables, CC BY", img:"National Flag of the UK by icon0 com, CC0; Vintage London Illustration, AI generated, CC0; Oxford Street London W1 Signpost by Video Girl, CC0; People of All Countries by Gerd Altmann, CC0", note:"Layered images: the inner windows are painted differently from the outside."},
+  {name:"Leopard Sunglasses", tool:"painter", model:"Fully Printable Sunglasses by OhCuando, Printables, CC0", img:"Leopard Skin Pattern Print by Karen Arnold, CC0"},
+  {name:"Rocket Bank", tool:"painter", model:"Rocket Ship Money Savings Piggy Bank by D3DCreative, Printables, CC BY 4.0", img:"Colorful Cartoon Astronaut by Anthony Poynton, CC0"},
+  {name:"Low Poly Skull", tool:"painter", model:"Low Poly Skull by Grootvader, Printables, CC0", img:"Vintage Pattern Flowers Background by Andrea Stockel, CC0"},
+  {name:"Flower Panda", tool:"painter", model:"STLFlix", img:"Flowers, Floral Background Pattern by Karen Arnold, CC0"},
+  {name:"Dragon Book Bank", tool:"painter", model:"Book Piggy Bank by Tyler Nielsen, Printables, CC BY 4.0", img:"Eye of a Dragon by Circe Denyer, CC0"},
+  {name:"Mando Helmet", tool:"painter", fan:true, model:"Mandalorian Helmet by Mr.Man14, Printables, CC0", img:"Ornament Pattern Background by Martina Stokow, CC0; Morphomesh logo"},
+  {name:"Poop Dumpster", tool:"painter", model:"Poop Dumpster by Rob C, Printables, CC BY 4.0", img:"Designed by RacerX or generated with Google Gemini"},
+  {name:"Morphomesh Billboard", tool:"painter", model:"Scale Billboard Prop by Celta, Printables, CC BY-SA", img:"Beach photo by RacerX, Morphomesh text (inverted) AI generated"},
+  {name:"Wet Floor Tents", tool:"painter", model:"Blank Customizable Floor Caution-Style Stand Up Sign by Austin Hansen, Printables, CC0", img:"Morphomesh QR code and logo", note:"Shows off the QR code painter."},
+  {name:"Morphomesh Phone Case", tool:"painter", model:"Designed by RacerX", img:"Morphomesh logo"},
+  {name:"Zelda Sword", tool:"preview", fan:true, model:"Master Sword (Full Size) - Legend of Zelda by Chels CCT, Printables, CC BY", img:"AI generated", note:"Painted with Model Painter, then split with a new tool that keeps the paint through part splits. Built because bigger prints were hard to paint without splitting them."}
 ];
 const toolLabel = {puzzle:"Color Puzzle", painter:"Model Painter", preview:"Preview tool"};
 const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmt = s => s === N ? `<span class="need">${N}</span>`
   : esc(s).replace(/\[source needed\]/g, `<span class="need">${N}</span>`);
 
+// Each piece has a matching card on /credits, anchored by the same slug.
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
 const list = document.getElementById("partList");
 list.innerHTML = parts.map(p => `
   <article class="part" data-tool="${p.tool}">
-    <div class="num">${p.n}</div>
+    <div class="num" aria-hidden="true"></div>
     <div class="part-body">
       <div class="part-name">
         <h3>${esc(p.name)}</h3>
         <span class="tag ${p.tool}">${toolLabel[p.tool]}${p.mode ? ": " + p.mode : ""}</span>
         ${p.fan ? '<span class="tag fan">Fan art</span>' : ""}
+        <a class="credit-link" href="/credits/#${slug(p.name)}">Credits page</a>
       </div>
       <div class="src">
         ${p.model ? `<span>Model</span><span>${fmt(p.model)}</span>` : ""}

@@ -377,6 +377,149 @@
   color: var(--accent-text);
 }
 
+/* Printed pieces: one card per piece, each with its own #slug anchor so
+   booth volunteers can send visitors straight to a piece's sources. */
+.piece-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: var(--space-3);
+}
+
+.piece-index a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+}
+
+.piece-index a:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.credits-group .pieces + h3 {
+  margin-top: var(--space-3);
+}
+
+.pieces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: var(--space-2);
+}
+
+.piece {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: var(--radius-box);
+  padding: var(--space-2);
+  scroll-margin-top: 5rem;
+}
+
+.piece--color-puzzle { border-top-color: var(--mm-print-teal); }
+.piece--model-painter { border-top-color: var(--mm-print-amber); }
+.piece--preview {
+  border-top-color: transparent;
+  background:
+    repeating-linear-gradient(90deg, var(--mm-print-teal) 0 12px, var(--mm-print-amber) 12px 24px) top / 100% 3px no-repeat border-box,
+    var(--surface);
+}
+
+/* Highlight the piece someone was linked to. */
+.piece:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-wash);
+}
+
+.piece-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.6rem;
+  margin-bottom: var(--space-1);
+}
+
+.piece-head h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.piece-head h4 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.piece-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-badge);
+  padding: 0.05rem 0.5rem;
+}
+
+.piece-tag--fan {
+  color: var(--text-dim);
+  border-style: dashed;
+}
+
+.piece-sources {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.piece-sources dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+  margin-top: 0.6rem;
+}
+
+.piece-sources dt:first-child {
+  margin-top: 0;
+}
+
+.piece-sources dd {
+  margin: 0.15rem 0 0;
+  color: var(--text);
+}
+
+.piece-sources ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.piece-sources li + li {
+  margin-top: 0.3rem;
+}
+
+.piece-sources a,
+.piece-note a {
+  color: var(--accent-text);
+}
+
+.credit-meta {
+  color: var(--text-muted);
+}
+
+.credit-sub {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.piece-note {
+  margin: var(--space-1) 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
 /* ─── Tool detail modal ──────────────────────────────────────────────── */
 
 .tool-modal {
@@ -425,6 +568,45 @@
 
 .modal-description {
   color: var(--text-muted);
+}
+
+/* ─── Signup popup (3D Printopia — temporary) ────────────────────────── */
+
+.signup-modal {
+  width: min(90vw, 520px);
+}
+
+.signup-modal:focus {
+  outline: none;
+}
+
+.signup-modal .tool-modal-inner {
+  text-align: center;
+}
+
+/* The close button needs its own method="dialog" form (the Kit form can't
+   be nested inside one), but that wrapper shouldn't take a flex gap slot. */
+.signup-modal-close-form {
+  display: contents;
+}
+
+/* Auto side margins would shrink-wrap the form inside the flex column. */
+.signup-modal .formkit-form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Stack the field and button so the button spans the field's full width. */
+.signup-modal .formkit-fields {
+  flex-direction: column;
+}
+
+.signup-modal .formkit-field {
+  flex: none;
+}
+
+.signup-modal .privacy-note {
+  margin: 0;
 }
 
 /* ─── Media carousel (modal) ─────────────────────────────────────────── */

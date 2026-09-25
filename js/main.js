@@ -1,10 +1,12 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// 3D Printopia promo banner — auto-remove after the event so no manual
-// deploy step is needed to take it down (there's no build/CI pipeline here).
+// 3D Printopia promo banner (and signup popup, below) — auto-remove after
+// the event so no manual deploy step is needed to take them down (there's
+// no build/CI pipeline here).
+const printopiaCutoff = new Date("2026-09-28T00:00:00");
+const isAfterPrintopia = new Date() >= printopiaCutoff;
 const promoBanner = document.querySelector(".promo-banner");
-const promoBannerCutoff = new Date("2026-09-28T00:00:00");
-if (promoBanner && new Date() >= promoBannerCutoff) {
+if (promoBanner && isAfterPrintopia) {
   promoBanner.remove();
 }
 
@@ -228,6 +230,31 @@ toolModal?.addEventListener("close", () => {
   document.body.classList.remove("modal-open");
   toolModalTrigger?.focus();
 });
+
+// 3D Printopia signup popup: open the mailing-list form as soon as the page
+// loads, so QR-code scanners at the booth don't have to scroll to find it.
+// It's a copy of the #early-access form, so closing it leaves that one in
+// place. Deliberately shown on every page load (no "already seen" memory)
+// since it's only up for the show.
+const signupModal = document.getElementById("signup-modal");
+
+if (signupModal && isAfterPrintopia) {
+  signupModal.remove();
+} else if (signupModal) {
+  signupModal.addEventListener("click", (event) => {
+    if (event.target === signupModal) signupModal.close();
+  });
+
+  signupModal.addEventListener("close", () => {
+    document.body.classList.remove("modal-open");
+  });
+
+  document.body.classList.add("modal-open");
+  signupModal.showModal();
+  // showModal() focuses the first control (the X), which draws a focus
+  // ring on page load — focus the dialog itself instead.
+  signupModal.focus();
+}
 
 // Card-face media: play the looping preview on hover (desktop) or when
 // scrolled into view (touch, as the nearest equivalent to hover), and fall
